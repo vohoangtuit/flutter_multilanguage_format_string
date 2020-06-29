@@ -1,0 +1,15 @@
+{
+  "home_page": "Trang chủ",
+  "personal_information": "Thông tin cá nhân",
+  "name": "Tên",
+  "name_hint": "Nhập tên của bạn",
+  "email": "Email",
+  "email_hint": "Nhập Email",
+  "date_of_birth": "Sinh nhật",
+  "required_field": "yêu cầu nhập",
+  "submit_info": "Submit Info",
+  "about_us": "Về chúng tôi",
+  "settings": "Cài đặt",
+  "change_language": "Đổi ngôn ngữ",
+  "about": "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum đã trở thành văn bản giả tiêu chuẩn của ngành công nghiệp kể từ những năm 1500, khi một nhà in không rõ đã lấy một loại galley và xáo trộn nó để tạo ra một cuốn sách mẫu vật. Nó đã tồn tại không chỉ năm thế kỷ, mà còn là bước nhảy vọt trong việc sắp chữ điện tử, về cơ bản vẫn không thay đổi. Nó được phổ biến vào những năm 1960 với việc phát hành các tờ Letraset có chứa các đoạn Lorem Ipsum và gần đây với phần mềm xuất bản trên máy tính để bàn như Aldus PageMaker bao gồm các phiên bản của Lorem Ipsum."
+}
