@@ -1,68 +1,55 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:multilanguageformatstring/localization/app_translations_delegate.dart';
+import 'package:multilanguageformatstring/signupscreen.dart';
 
-void main() {
-  runApp(MyApp());
+import 'localization/applications.dart';
+
+Future<Null> main() async {
+  runApp(new LocalisedApp());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class LocalisedApp extends StatefulWidget {
+  @override
+  LocalisedAppState createState() {
+    return new LocalisedAppState();
+  }
+}
+
+class LocalisedAppState extends State<LocalisedApp> {
+  AppTranslationsDelegate _newLocaleDelegate;
+
+  @override
+  void initState() {
+    super.initState();
+    _newLocaleDelegate = AppTranslationsDelegate(newLocale: null);
+    application.onLocaleChanged = onLocaleChange;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: SignUpUI(),
+      localizationsDelegates: [
+        _newLocaleDelegate,
+        //provides localised strings
+        GlobalMaterialLocalizations.delegate,
+        //provides RTL support
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale("en", ""),
+        const Locale("es", ""),
+        const Locale("vi", ""),
+      ],
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  var firstName ='Vo Hoàng';
-  var lastName ='Tú';
-  var age =30;
-
-  void _incrementCounter() {
+  void onLocaleChange(Locale locale) {
     setState(() {
-      _counter++;
+      _newLocaleDelegate = AppTranslationsDelegate(newLocale: locale);
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'FullName: $firstName $lastName \nAge: $age',
-            ),
-            SizedBox(height: 30,),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
